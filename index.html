@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balatonboglár családi ház eladó</title>
+
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f4f4f4;color:#222}
+header{background:#2c3e50;color:white;padding:25px;text-align:center}
+.lang{text-align:center;margin:15px}
+.lang button{padding:10px 16px;margin:5px;border:none;background:#3498db;color:white;border-radius:6px;cursor:pointer}
+.lang button:hover{background:#2980b9}
+.container{max-width:1100px;margin:auto;background:white;padding:25px}
+.hidden{display:none}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:14px;
+}
+
+.gallery img{
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:8px;
+cursor:pointer;
+}
+
+.map{
+margin-top:30px;
+}
+
+.map iframe{
+width:100%;
+height:420px;
+border:0;
+border-radius:8px;
+}
+
+.contact{
+background:#f0f0f0;
+padding:20px;
+border-radius:8px;
+margin-top:25px;
+}
+
+.lightbox{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+}
+
+.lightbox.active{display:flex}
+
+.lightbox img{
+max-width:95vw;
+max-height:90vh;
+}
+
+.lightbox button{
+position:fixed;
+background:rgba(255,255,255,0.2);
+color:white;
+border:none;
+font-size:28px;
+padding:8px 12px;
+cursor:pointer;
+}
+
+.lightbox-close{top:20px;right:20px}
+.lightbox-prev{left:20px;top:50%;transform:translateY(-50%)}
+.lightbox-next{right:20px;top:50%;transform:translateY(-50%)}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Balatonboglár – családi ház eladó</h1>
+</header>
+
+<div class="lang">
+<button onclick="setLang('hu')">Magyar</button>
+<button onclick="setLang('de')">Deutsch</button>
+<button onclick="setLang('nl')">Nederlands</button>
+</div>
+
+<div class="container">
+
+<div id="hu">
+<h2>Balatonbogláron családi ház eladó</h2>
+<p>Balatonbogláron, csendes zsákutcában eladó egy 597 m² telken álló családi ház melléképülettel. A Balaton kb. 10–12 perc sétára található.</p>
+<p>Az ingatlan több bejárattal rendelkezik, így alkalmas többgenerációs lakhatásra vagy akár apartman kialakítására is.</p>
+<ul>
+<li>Telek: 597 m²</li>
+<li>Főépület: kb. 120 m²</li>
+<li>Melléképület: kb. 55 m²</li>
+<li>Beépíthető tetőtér</li>
+<li>Pince</li>
+<li>Gázfűtés + kandalló</li>
+<li>Ipari áram (3 fázis)</li>
+<li>Víz, csatorna, gáz</li>
+<li>Csendes zsákutca</li>
+<li>Balaton: kb. 10–12 perc séta</li>
+</ul>
+</div>
+
+<div id="de" class="hidden">
+<h2>Einfamilienhaus in Balatonboglár</h2>
+<p>In Balatonboglár, in einer ruhigen Sackgasse, steht ein Einfamilienhaus auf einem 597 m² großen Grundstück zum Verkauf. Der Balaton ist etwa 10–12 Minuten zu Fuß entfernt.</p>
+<p>Die Immobilie verfügt über mehrere Eingänge und eignet sich sowohl für mehrere Generationen als auch für Ferienvermietung oder getrennte Wohneinheiten.</p>
+<ul>
+<li>Grundstück: 597 m²</li>
+<li>Hauptgebäude: ca. 120 m²</li>
+<li>Nebengebäude: ca. 55 m²</li>
+<li>Ausbaubarer Dachboden</li>
+<li>Keller</li>
+<li>Gasheizung + Kamin</li>
+<li>Starkstrom (3 Phasen)</li>
+<li>Wasser, Kanalisation, Gas</li>
+<li>Ruhige Sackgasse</li>
+<li>Balaton: ca. 10–12 Minuten zu Fuß</li>
+</ul>
+</div>
+
+<div id="nl" class="hidden">
+<h2>Vrijstaand huis te koop in Balatonboglár</h2>
+<p>In Balatonboglár, in een rustige doodlopende straat, staat een vrijstaand huis te koop op een perceel van 597 m². Het Balatonmeer ligt op ongeveer 10–12 minuten lopen.</p>
+<p>De woning heeft meerdere ingangen en is daardoor geschikt voor meerdere generaties, vakantieverhuur of afzonderlijke woonruimtes.</p>
+<ul>
+<li>Perceel: 597 m²</li>
+<li>Hoofdgebouw: ca. 120 m²</li>
+<li>Bijgebouw: ca. 55 m²</li>
+<li>Uitbreidbare zolder</li>
+<li>Kelder</li>
+<li>Gasverwarming + open haard</li>
+<li>Krachtstroom (3 fasen)</li>
+<li>Water, riolering, gas</li>
+<li>Rustige doodlopende straat</li>
+<li>Balatonmeer: ca. 10–12 minuten lopen</li>
+</ul>
+</div>
+
+<h2>Fotógaléria</h2>
+
+<div class="gallery">
+<img src="gallery/a_01.jpg" onclick="openLightbox(0)">
+<img src="gallery/b_02.jpg" onclick="openLightbox(1)">
+<img src="gallery/b_07.jpg" onclick="openLightbox(2)">
+<img src="gallery/b_16.jpg" onclick="openLightbox(3)">
+<img src="gallery/c_a_01_9.jpg" onclick="openLightbox(4)">
+<img src="gallery/c_a_02_12.jpg" onclick="openLightbox(5)">
+<img src="gallery/c_a_03_05.jpg" onclick="openLightbox(6)">
+<img src="gallery/c_a_04_16.jpg" onclick="openLightbox(7)">
+<img src="gallery/c_a_05_10.jpg" onclick="openLightbox(8)">
+<img src="gallery/c_b_01.jpg" onclick="openLightbox(9)">
+<img src="gallery/c_b_02.jpg" onclick="openLightbox(10)">
+<img src="gallery/d_a_02.jpg" onclick="openLightbox(11)">
+<img src="gallery/d_a_03.jpg" onclick="openLightbox(12)">
+<img src="gallery/d_a_04.jpg" onclick="openLightbox(13)">
+<img src="gallery/d_b_03.jpg" onclick="openLightbox(14)">
+<img src="gallery/d_b_06.jpg" onclick="openLightbox(15)">
+<img src="gallery/d_c_02.jpg" onclick="openLightbox(16)">
+</div>
+
+<div class="map">
+<h2>Térkép / Karte / Kaart</h2>
+<iframe src="https://www.google.com/maps?q=46.7795639,17.6686000&z=19&output=embed"></iframe>
+</div>
+
+<div class="contact">
+<p><b>Kapcsolat / Kontakt / Contact:</b><br>
+Szabó Tamás<br>
+Telefon: +36 20 323 6649<br>
+Email: <a href="mailto:vietta@enternet.hu">vietta@enternet.hu</a>
+</p>
+<p><b>Irányár / Preis / Vraagprijs:</b> 120 000 000 Ft</p>
+</div>
+
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+<button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+<button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+<img id="lightbox-image">
+<button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+function setLang(lang){
+document.getElementById("hu").classList.add("hidden")
+document.getElementById("de").classList.add("hidden")
+document.getElementById("nl").classList.add("hidden")
+document.getElementById(lang).classList.remove("hidden")
+}
+
+const images=[
+"gallery/a_01.jpg","gallery/b_02.jpg","gallery/b_07.jpg","gallery/b_16.jpg",
+"gallery/c_a_01_9.jpg","gallery/c_a_02_12.jpg","gallery/c_a_03_05.jpg",
+"gallery/c_a_04_16.jpg","gallery/c_a_05_10.jpg","gallery/c_b_01.jpg",
+"gallery/c_b_02.jpg","gallery/d_a_02.jpg","gallery/d_a_03.jpg",
+"gallery/d_a_04.jpg","gallery/d_b_03.jpg","gallery/d_b_06.jpg",
+"gallery/d_c_02.jpg"
+]
+
+let current=0
+
+function openLightbox(i){
+current=i
+document.getElementById("lightbox-image").src=images[i]
+document.getElementById("lightbox").classList.add("active")
+}
+
+function closeLightbox(e){
+if(e.target.id==="lightbox" || e.target.classList.contains("lightbox-close")){
+document.getElementById("lightbox").classList.remove("active")
+}
+}
+
+function prevImage(e){
+e.stopPropagation()
+current=(current-1+images.length)%images.length
+document.getElementById("lightbox-image").src=images[current]
+}
+
+function nextImage(e){
+e.stopPropagation()
+current=(current+1)%images.length
+document.getElementById("lightbox-image").src=images[current]
+}
+</script>
+
+</body>
+</html>
